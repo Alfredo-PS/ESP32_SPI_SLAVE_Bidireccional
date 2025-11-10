@@ -43,6 +43,10 @@ void app_main(void)
         .post_setup_cb = NULL,     // Callback después de setup (opcional)
         .post_trans_cb = NULL      // Callback después de transacción (opcional)
     };
+    
+    gpio_set_pull_mode(GPIO_MOSI, GPIO_PULLUP_ONLY); //Activar resistencia pull up para los pines de entrada
+    gpio_set_pull_mode(GPIO_SCLK, GPIO_PULLUP_ONLY);
+    gpio_set_pull_mode(GPIO_CS, GPIO_PULLUP_ONLY);
 
     char recvbuf[RECEIVE_BUF_SIZE] = {0}; //recvbuf -> buffer en donde se guardará el mensaje
     char sendbuf[RECEIVE_BUF_SIZE] = {0};
